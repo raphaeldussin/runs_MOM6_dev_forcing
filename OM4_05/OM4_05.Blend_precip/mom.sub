@@ -1,0 +1,80 @@
+#!/bin/bash
+#SBATCH -n 240
+#SBATCH -J OM4p5_blend
+#SBATCH --error=OM4p5.err 
+#SBATCH --output=OM4p5.out
+#SBATCH --exclusive
+#SBATCH -p triton16
+
+njobs=40
+
+#--------------------------------- system settings ----- ---------------------------
+module load gcc/5.3.0 netcdf/4.3.0-gcc5.3.0 openmpi/1.8.5_gcc5.3.0
+export NC_BLKSZ=1M
+ulimit -s unlimited
+
+# setup the run directory
+if [ ! -d RESTART ] ; then mkdir RESTART ; fi
+if [ ! -d outputs_raw ] ; then mkdir outputs_raw ; fi
+if [ ! -d restarts_raw ] ; then mkdir restarts_raw ; fi
+if [ ! -d logs ] ; then mkdir logs ; fi
+
+#--------------------------------- prepare input files ---------------------------
+
+ctrldir=$( pwd )
+subscript=mom.sub
+
+if [ ! -f jobscompleted ] ; then touch jobscompleted ; fi
+
+lastjob=$( tail -1 jobscompleted )
+thisjob=$(( $lastjob + 1 )) # if file empty, takes job number one
+
+echo 'starting job #' $thisjob
+
+# at first job, replace restart by cold start
+if [[ $thisjob == 1 ]] ; then
+   sed -i -e "s/input_filename = 'r'/input_filename = 'n'/g" input.nml
+# at second job, replace init by restart
+elif [[ $thisjob == 2 ]] ; then
+   sed -i -e "s/input_filename = 'n'/input_filename = 'r'/g" input.nml
+fi
+
+# grep the first year of the run
+yearbeg=$( grep "current_date" input.nml | sed -e "s/,/ /g" | awk '{print $3}' )
+thisyear=$(( $yearbeg + $thisjob -1 ))
+
+cat data_table.template | sed -e "s/<YEAR>/$thisyear/g" > data_table
+
+#--------------------------------- run the model -----------------------------------
+
+srun --cpu_bind=rank -n 240 ./MOM6
+
+#--------------------------------- check status of run -----------------------------
+
+runok=$( tail -200 OM4p5.out | grep -i "Total runtime" )
+if [[ $runok != '' ]] ; then
+   # move outputs 
+   mv *.nc ./outputs_raw/.
+   mv *.nc.???? ./outputs_raw/.
+   # save restarts and move to input
+   tar -cvf restarts.$thisjob RESTART/*
+   mv restarts.$thisjob ./restarts_raw
+   mv RESTART/* INPUT/.
+   # move logs
+   tar -cvf logs.tar.$thisjob MOM_parameter_doc.* SIS_parameter_doc.* OM4p5.err OM4p5.out ocean.stats* logfile.000000.out available_diags.000000 seaice.stats SIS.available_diags SIS_fast.available_diags ocean_stats*
+   mv logs.tar.$thisjob ./logs/.
+
+   # notify completion
+   echo $thisjob >> $ctrldir/jobscompleted
+   # test for resubmission
+   if (( $thisjob < $njobs )) ; then
+      cd $ctrldir ; sbatch ./$subscript
+   else
+      # final job
+      echo this is the last job
+   fi
+else
+   # run blew up
+   echo "run blew up"
+   exit 1
+fi
