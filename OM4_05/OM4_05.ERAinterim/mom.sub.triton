@@ -1,21 +1,16 @@
 #!/bin/bash
-#SBATCH -n 252
+#SBATCH -n 240
 #SBATCH -J OM4p5
+#SBATCH --nodelist=node[16-17,19-28,30-32]
 #SBATCH --error=OM4p5.err 
 #SBATCH --output=OM4p5.out
 #SBATCH --exclusive
-#SBATCH --time=10:00:00
-#SBATCH --qos=urgent
-#SBATCH --partition=batch
-#SBATCH --clusters=c4
-## obviously use your group account:
-#SBATCH --account=gfdl_o
+#SBATCH -p triton16
 
 njobs=40
 
 #--------------------------------- system settings ----- ---------------------------
-module load cray-netcdf
-
+module load gcc/5.3.0 netcdf/4.3.0-gcc5.3.0 openmpi/1.8.5_gcc5.3.0
 export NC_BLKSZ=1M
 ulimit -s unlimited
 
@@ -53,7 +48,7 @@ cat data_table.template | sed -e "s/<YEAR>/$thisyear/g" > data_table
 
 #--------------------------------- run the model -----------------------------------
 
-srun --cpu_bind=rank -n 252 ./MOM6
+srun --cpu_bind=rank -n 240 ./MOM6
 
 #--------------------------------- check status of run -----------------------------
 
@@ -62,8 +57,6 @@ if [[ $runok != '' ]] ; then
    # move outputs 
    mv *.nc ./outputs_raw/.
    mv *.nc.???? ./outputs_raw/.
-   # initiate transfer
-   sbatch transfer.sub $thisyear
    # save restarts and move to input
    tar -cvf restarts.$thisjob RESTART/*
    mv restarts.$thisjob ./restarts_raw

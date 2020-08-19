@@ -1,0 +1,28 @@
+#!/bin/bash
+#SBATCH -n 1
+#SBATCH -J trnsfr
+#SBATCH --error=transfer_OM4p5.%J.err 
+#SBATCH --output=transfer_OM4p5.%J.out
+#SBATCH --time=16:00:00
+#SBATCH --partition=ldtn
+#SBATCH --account=gfdl_o
+
+set -x
+
+year=$1
+
+module load gcp
+
+gfdldir=/archive/Raphael.Dussin/runs_forcings/OM4_05.ERAinterim
+
+pushd outputs_raw
+
+tar -cvf ${year}0101.nc.tar ${year}0101.*
+gcp ${year}0101.nc.tar gfdl:${gfdldir}/${year}0101.nc.tar
+
+md5sum ${year}0101.nc.tar >> checksums.txt
+gcp checksums.txt gfdl:${gfdldir}/checksums.txt
+
+rm -f ${year}0101.nc.tar
+
+popd
