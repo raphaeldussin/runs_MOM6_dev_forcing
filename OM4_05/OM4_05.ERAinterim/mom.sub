@@ -63,7 +63,7 @@ if [[ $runok != '' ]] ; then
    mv *.nc ./outputs_raw/.
    mv *.nc.???? ./outputs_raw/.
    # initiate transfer
-   sbatch transfer.sub $thisyear
+   #sbatch transfer.sub $thisyear
    # save restarts and move to input
    tar -cvf restarts.$thisjob RESTART/*
    mv restarts.$thisjob ./restarts_raw

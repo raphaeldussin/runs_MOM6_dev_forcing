@@ -1,18 +1,18 @@
-"ATM" , "p_surf"        , "Pair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Pair_ERAinterim_1984_OM4p5_patch.nc"          , "none" ,  1.0
-"ATM" , "p_bot"         , "Pair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Pair_ERAinterim_1984_OM4p5_patch.nc"          , "none" ,  1.0
-"ATM" , "t_bot"         , "Tair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Tair_ERAinterim_1984_OM4p5_patch.nc"     , "none" ,  1.0
-"ATM" , "sphum_bot"     , "Qair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Qair_ERAinterim_1984_OM4p5_patch.nc"     , "none" ,  1.0
-"ATM" , "u_bot"         , "Uwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Uwind_ERAinterim_1984_OM4p5_patch.nc"     , "none",   1.0
-"ATM" , "v_bot"         , "Vwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Vwind_ERAinterim_1984_OM4p5_patch.nc"     , "none",   1.0
+"ATM" , "p_surf"        , "Pair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Pair_ERAinterim_2018_OM4p5_patch.nc"          , "none" ,  1.0
+"ATM" , "p_bot"         , "Pair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Pair_ERAinterim_2018_OM4p5_patch.nc"          , "none" ,  1.0
+"ATM" , "t_bot"         , "Tair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Tair_ERAinterim_2018_OM4p5_patch.nc"     , "none" ,  1.0
+"ATM" , "sphum_bot"     , "Qair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Qair_ERAinterim_2018_OM4p5_patch.nc"     , "none" ,  1.0
+"ATM" , "u_bot"         , "Uwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Uwind_ERAinterim_2018_OM4p5_patch.nc"     , "none",   1.0
+"ATM" , "v_bot"         , "Vwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Vwind_ERAinterim_2018_OM4p5_patch.nc"     , "none",   1.0
 "ATM" , "z_bot"         , ""            , ""                             , "bilinear" , 10.0
 "ATM" , "gust"          , ""            , ""                             , "bilinear" ,  1.0e-4
-"ICE" , "lw_flux_dn"    , "lwrad_down"  , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/lwrad_down_ERAinterim_1984_OM4p5_conservative.nc"     , "none" ,  1.0
-"ICE" , "sw_flux_vis_dir_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_1984_OM4p5_conservative.nc"     , "none" ,  0.285
-"ICE" , "sw_flux_vis_dif_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_1984_OM4p5_conservative.nc"     , "none" ,  0.285
-"ICE" , "sw_flux_nir_dir_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_1984_OM4p5_conservative.nc"     , "none" ,  0.215
-"ICE" , "sw_flux_nir_dif_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_1984_OM4p5_conservative.nc"     , "none" ,  0.215
-"ICE" , "lprec"         , "rain"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/rain_ERAinterim_1984_OM4p5_conservative.nc"  , "none" ,  1.
-"ICE" , "fprec"         , "snow"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/snow_ERAinterim_1984_OM4p5_conservative.nc"  , "none" ,  1.
+"ICE" , "lw_flux_dn"    , "lwrad_down"  , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/lwrad_down_ERAinterim_2018_OM4p5_conservative.nc"     , "none" ,  1.0
+"ICE" , "sw_flux_vis_dir_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_2018_OM4p5_conservative.nc"     , "none" ,  0.285
+"ICE" , "sw_flux_vis_dif_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_2018_OM4p5_conservative.nc"     , "none" ,  0.285
+"ICE" , "sw_flux_nir_dir_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_2018_OM4p5_conservative.nc"     , "none" ,  0.215
+"ICE" , "sw_flux_nir_dif_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_2018_OM4p5_conservative.nc"     , "none" ,  0.215
+"ICE" , "lprec"         , "rain"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/rain_ERAinterim_2018_OM4p5_conservative.nc"  , "none" ,  1.
+"ICE" , "fprec"         , "snow"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/snow_ERAinterim_2018_OM4p5_conservative.nc"  , "none" ,  1.
 "ICE" , "runoff"        , "runoff"      , "./INPUT/runoff.daitren.clim.720x576.v20180328.nc", "none" ,  1.0
 "ICE" , "calving"       , ""            , ""                             , "none"  ,  0.0
 "ICE" , "dhdt"          , ""            , ""                             , "none"  , 80.0

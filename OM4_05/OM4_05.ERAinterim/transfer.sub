@@ -9,7 +9,8 @@
 
 set -x
 
-year=$1
+fyear=$1
+lyear=$2
 
 module load gcp
 
@@ -17,12 +18,16 @@ gfdldir=/archive/Raphael.Dussin/runs_forcings/OM4_05.ERAinterim
 
 pushd outputs_raw
 
-tar -cvf ${year}0101.nc.tar ${year}0101.*
-gcp ${year}0101.nc.tar gfdl:${gfdldir}/${year}0101.nc.tar
+tar -cvf ${fyear}0101.nc.tar ${fyear}0101.*
+gcp ${fyear}0101.nc.tar gfdl:${gfdldir}/${fyear}0101.nc.tar
 
-md5sum ${year}0101.nc.tar >> checksums.txt
+md5sum ${fyear}0101.nc.tar >> checksums.txt
 gcp checksums.txt gfdl:${gfdldir}/checksums.txt
 
-rm -f ${year}0101.nc.tar
+rm -f ${fyear}0101.nc.tar
 
 popd
+
+nyear=$(( $fyear + 1 ))
+if [ "$nyear" -le "$lyear" ] ; then sbatch ./transfer.sub $nyear $lyear ; fi
+
