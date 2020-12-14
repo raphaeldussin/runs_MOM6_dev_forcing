@@ -2,8 +2,8 @@
 "ATM" , "p_bot"         , "Pair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Pair_ERAinterim_<YEAR>_OM4p5_patch.nc"          , "none" ,  1.0
 "ATM" , "t_bot"         , "Tair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Tair_ERAinterim_<YEAR>_OM4p5_patch.nc"     , "none" ,  1.0
 "ATM" , "sphum_bot"     , "Qair"         , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Qair_ERAinterim_<YEAR>_OM4p5_patch.nc"     , "none" ,  1.0
-"ATM" , "u_bot"         , "Uwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Uwind_ERAinterim_<YEAR>_OM4p5_patch.nc"     , "none",   1.0
-"ATM" , "v_bot"         , "Vwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/Vwind_ERAinterim_<YEAR>_OM4p5_patch.nc"     , "none",   1.0
+"ATM" , "u_bot"         , "Uwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/UwindR_ERAinterim_<YEAR>_OM4p5_patch.nc"     , "none",   1.0
+"ATM" , "v_bot"         , "Vwind"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/VwindR_ERAinterim_<YEAR>_OM4p5_patch.nc"     , "none",   1.0
 "ATM" , "z_bot"         , ""            , ""                             , "bilinear" , 10.0
 "ATM" , "gust"          , ""            , ""                             , "bilinear" ,  1.0e-4
 "ICE" , "lw_flux_dn"    , "lwrad_down"  , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/lwrad_down_ERAinterim_<YEAR>_OM4p5_conservative.nc"     , "none" ,  1.0
