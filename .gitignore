@@ -1,2 +1,13 @@
 *.out
 *.err
+MOM_parameter_doc.*
+SIS_parameter_doc.*
+*available_diags*
+*velocity_truncations
+jobscompleted
+*.stats
+INPUT
+MOM6
+logs
+outputs_raw
+restarts_raw

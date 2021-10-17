@@ -1,0 +1,33 @@
+#!/bin/bash
+#SBATCH -n 1
+#SBATCH -J trnsfr
+#SBATCH --error=transfer_OM4p5.%J.err 
+#SBATCH --output=transfer_OM4p5.%J.out
+#SBATCH --time=3:00:00
+#SBATCH --partition=ldtn
+#SBATCH --account=gfdl_o
+
+set -x
+
+fyear=$1
+lyear=$2
+
+module load gcp
+
+gfdldir=/archive/Raphael.Dussin/runs_forcings/OM4_05.GPCP
+
+pushd outputs_raw
+
+tar -cvf ${fyear}0101.nc.tar ${fyear}0101.*
+gcp ${fyear}0101.nc.tar gfdl:${gfdldir}/${fyear}0101.nc.tar
+
+md5sum ${fyear}0101.nc.tar >> checksums.txt
+gcp checksums.txt gfdl:${gfdldir}/checksums.txt
+
+rm -f ${fyear}0101.nc.tar
+
+popd
+
+nyear=$(( $fyear + 1 ))
+if [ "$nyear" -le "$lyear" ] ; then sbatch ./transfer.sub $nyear $lyear ; fi
+

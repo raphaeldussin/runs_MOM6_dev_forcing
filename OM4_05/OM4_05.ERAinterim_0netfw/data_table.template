@@ -11,7 +11,7 @@
 "ICE" , "sw_flux_vis_dif_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_<YEAR>_OM4p5_conservative.nc"     , "none" ,  0.285
 "ICE" , "sw_flux_nir_dir_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_<YEAR>_OM4p5_conservative.nc"     , "none" ,  0.215
 "ICE" , "sw_flux_nir_dif_dn", "swrad",    "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/swrad_ERAinterim_<YEAR>_OM4p5_conservative.nc"     , "none" ,  0.215
-"ICE" , "lprec"         , "rain"        , "/lustre/f2/dev/Raphael.Dussin/forcings/CMT_OM4p5/rain_Blend_Dussin_<YEAR>_OM4p5_conservative.nc"  , "none" ,  1.
+"ICE" , "lprec"         , "rain"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/rain_ERAinterim_<YEAR>_OM4p5_conservative.nc"  , "none" ,  1.
 "ICE" , "fprec"         , "snow"        , "/lustre/f2/dev/Raphael.Dussin/forcings/ERAinterim_OM4p5/snow_ERAinterim_<YEAR>_OM4p5_conservative.nc"  , "none" ,  1.
 "ICE" , "runoff"        , "runoff"      , "./INPUT/runoff.daitren.clim.720x576.v20180328.nc", "none" ,  1.0
 "ICE" , "calving"       , ""            , ""                             , "none"  ,  0.0
